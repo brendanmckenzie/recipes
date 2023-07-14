@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Update Recipes
+
+jobs:
+  nextjs:
+    runs-on: self-hosted
+
+    steps:
+      - name: Deploy
+        run: |
+          cd /home/ubuntu/app/recipes
+          git fetch
+          git rebase origin/main
